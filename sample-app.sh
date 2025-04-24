@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#!/bin/bash
+
+docker stop samplerunning 2>/dev/null
+docker rm samplerunning 2>/dev/null
+
 mkdir tempdir
 mkdir tempdir/templates
 mkdir tempdir/static
@@ -18,5 +23,5 @@ echo "CMD python /home/myapp/sample_app.py" >> tempdir/Dockerfile
 
 cd tempdir
 docker build -t sampleapp .
-docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+docker run -t -d -p 5050:5050 --name samplerunning sampleapp
 docker ps -a 
